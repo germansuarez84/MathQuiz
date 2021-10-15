@@ -12,6 +12,7 @@ export class HomePage {
   operation:number;
   soperation:string;
   result:number;
+  validateNumber:number;
 
   constructor() {
     this.setQuestion();
