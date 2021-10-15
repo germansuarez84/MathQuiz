@@ -11,7 +11,7 @@ export class HomePage {
   factor2:number;
   operation:number;
   soperation:string;
-
+  result:number;
 
   constructor() {
     this.setQuestion();
@@ -23,7 +23,9 @@ export class HomePage {
     this.factor2=this.getRandomInt(1,1000);
     this.operation=this.getRandomInt(1,5);
     switch(this.operation){
-      case 1: this.soperation="+";break;
+      case 1: this.soperation="+";
+              this.result=this.factor1+this.factor2;
+              break;
       case 2: this.soperation="-";break;
       case 3: this.soperation="*";break;
       case 4: this.soperation="/";break;
