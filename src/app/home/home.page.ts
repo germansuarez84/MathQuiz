@@ -26,9 +26,15 @@ export class HomePage {
       case 1: this.soperation="+";
               this.result=this.factor1+this.factor2;
               break;
-      case 2: this.soperation="-";break;
-      case 3: this.soperation="*";break;
-      case 4: this.soperation="/";break;
+      case 2: this.soperation="-";
+              this.result=this.factor1-this.factor2;
+              break;
+      case 3: this.soperation="*";
+              this.result=this.factor1*this.factor2;
+              break;
+      case 4: this.soperation="/";
+              this.result=this.factor1/this.factor2;
+              break;
 
     }
 
