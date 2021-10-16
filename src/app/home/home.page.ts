@@ -57,12 +57,13 @@ export class HomePage {
 
   validateNumber(){
     if (this.valNumber = this.result){
+      this.valNumber = this.valNumber;
       this.valNumber.toFixed(2);
-      this.result = this.valNumber;
-      this.smessage='Correcto';
+      this.smessage='Correcta';
     }else{
-      this.smessage='Incorrecto';
+      this.smessage='Incorrecta';
     };
+    this.setQuestion();
   }
 
   async presentAlert() {
