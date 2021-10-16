@@ -29,6 +29,7 @@ export class HomePage {
     this.operation=this.getRandomInt(1,5);
     //this.result=this.toFixed(3);
     this.smessage="";
+    this.valNumber=0;
     switch(this.operation){
       case 1: this.soperation="+";
               this.result=this.factor1+this.factor2;
@@ -56,13 +57,14 @@ export class HomePage {
   }
 
   validateNumber(){
-    if (this.valNumber = this.result){
-      this.valNumber = this.valNumber;
-      this.valNumber.toFixed(2);
+    if (this.valNumber.toFixed(2) == this.result.toFixed(2)){
+      //this.valNumber = this.valNumber;
+      //this.valNumber.toFixed(2);
       this.smessage='Correcta';
     }else{
       this.smessage='Incorrecta';
-    };
+    }
+    this.presentAlert();
     
   }
   
@@ -78,9 +80,17 @@ export class HomePage {
       });
 
     await alert.present();
+    
+    await alert.onDidDismiss().then(()=>{
+      this.setQuestion();
+    })
+
+
 
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
+
+    
   }
 
 
