@@ -15,6 +15,8 @@ export class HomePage {
   result:number;
   valNumber:number;
   smessage:string;
+  //let smessage: string|number = '${integer}${fraction}';
+
 
   constructor(public alertController: AlertController) {
     this.setQuestion();
@@ -25,7 +27,8 @@ export class HomePage {
     this.factor1=this.getRandomInt(1,1000);
     this.factor2=this.getRandomInt(1,1000);
     this.operation=this.getRandomInt(1,5);
-    this.smessage="Prueba";
+    //this.result=this.toFixed(3);
+    this.smessage="";
     switch(this.operation){
       case 1: this.soperation="+";
               this.result=this.factor1+this.factor2;
@@ -33,15 +36,19 @@ export class HomePage {
       case 2: this.soperation="-";
               this.result=this.factor1-this.factor2;
               break;
-      case 3: this.soperation="*";
+      case 3: this.soperation="X";
               this.result=this.factor1*this.factor2;
               break;
       case 4: this.soperation="/";
-              this.result=this.factor1/this.factor2;
+              this.result=this.factor1/ this.factor2;
+              this.result.toFixed(2);
               break;
 
     }
 
+  }
+  toFixed(arg0: number): number {
+    throw new Error('Method not implemented.');
   }
   
   getRandomInt(min: number,max: number){
@@ -49,18 +56,23 @@ export class HomePage {
   }
 
   validateNumber(){
-
+    if (this.valNumber = this.result){
+      this.valNumber.toFixed(2);
+      this.result = this.valNumber;
+      this.smessage='Correcto';
+    }else{
+      this.smessage='Incorrecto';
+    };
   }
 
-
   async presentAlert() {
-    const alert = await this.alertController.create({
+      const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
+      header: 'Tu Respuesta es:',
+      //subHeader: 'Subtitle',
+      message: ` ${this.smessage}` ,
       buttons: ['OK']
-    });
+      });
 
     await alert.present();
 
