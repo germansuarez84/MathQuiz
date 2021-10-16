@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NumericValueAccessor } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,10 @@ export class HomePage {
   operation:number;
   soperation:string;
   result:number;
-  validateNumber:number;
+  valNumber:number;
+  smessage:string;
 
-  constructor() {
+  constructor(public alertController: AlertController) {
     this.setQuestion();
 
   }
@@ -23,6 +25,7 @@ export class HomePage {
     this.factor1=this.getRandomInt(1,1000);
     this.factor2=this.getRandomInt(1,1000);
     this.operation=this.getRandomInt(1,5);
+    this.smessage="Prueba";
     switch(this.operation){
       case 1: this.soperation="+";
               this.result=this.factor1+this.factor2;
@@ -44,6 +47,27 @@ export class HomePage {
   getRandomInt(min: number,max: number){
     return Math.floor(Math.random()*(max-min))+min;
   }
+
+  validateNumber(){
+
+  }
+
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'This is an alert message.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
 
 
 }

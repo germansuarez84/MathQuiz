@@ -49,22 +49,26 @@
           <div><!-- Number type input -->
             <ion-item>
               <ion-label position="floating">Insertar Respuesta</ion-label>
-              <ion-input type="number" value="{{validateNumber}}"></ion-input>
+              <ion-input type="number" value="{{valNumber}}"></ion-input>
             </ion-item>
           </div>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col>
-          <div>
-            <ion-button position="floating" color="primary">Validar</ion-button>
-          </div>
-        </ion-col>
-    </ion-row>
-      
-      
     </ion-grid>
-
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Validar respuesta</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Resultado</ion-label>
+          <ion-input [(ngModel)]="smessage" readonly></ion-input>
+        </ion-item>
+        <ion-button position="floating" (click)="validate" color="primary">Validar</ion-button>
+      </ion-card-content>
+    </ion-card>
+    
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
