@@ -15,6 +15,8 @@ export class HomePage {
   result:number;
   valNumber:number;
   smessage:string;
+ 
+  srcicon:string;
   //let smessage: string|number = '${integer}${fraction}';
 
 
@@ -33,16 +35,20 @@ export class HomePage {
     switch(this.operation){
       case 1: this.soperation="+";
               this.result=this.factor1+this.factor2;
+              this.srcicon="../assets/icon/plus.svg";
               break;
       case 2: this.soperation="-";
               this.result=this.factor1-this.factor2;
+              this.srcicon="../assets/icon/minus.svg";
               break;
       case 3: this.soperation="X";
               this.result=this.factor1*this.factor2;
+              this.srcicon="../assets/icon/multiply.svg";
               break;
       case 4: this.soperation="/";
               this.result=this.factor1/ this.factor2;
               this.result.toFixed(2);
+              this.srcicon="../assets/icon/DivisionIcon.svg";
               break;
 
     }
