@@ -63,8 +63,10 @@ export class HomePage {
     }else{
       this.smessage='Incorrecta';
     };
-    this.setQuestion();
+    
   }
+  
+  
 
   async presentAlert() {
       const alert = await this.alertController.create({
